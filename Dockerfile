@@ -1,4 +1,4 @@
-FROM hearstat/alpine-tomcat:7.0.8
+FROM hearstat/alpine-tomcat:7.0.65
 MAINTAINER Hearst Automation Team <atat@hearst.com>
 
 LABEL version 3.8
