@@ -11,10 +11,10 @@ ENV GITBUCKET_HOME /opt/gitbucket
 RUN mkdir -p ${GITBUCKET_HOME}/plugins
 
 # Pull version of gitbucket listed above
-ADD https://github.com/gitbucket/gitbucket/releases/download/${version}/gitbucket.war ${CATALINA_HOME}/webapps/gitbucket.war
+ADD https://github.com/gitbucket/gitbucket/releases/download/${version}/gitbucket.war ${CATALINA_HOME}/webapps/ROOT.war
 
 USER root
-RUN chmod 755 ${CATALINA_HOME}/webapps/gitbucket.war
+RUN chmod 755 ${CATALINA_HOME}/webapps/ROOT.war
 
 USER tomcat
 
