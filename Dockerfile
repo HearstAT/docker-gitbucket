@@ -19,6 +19,9 @@ RUN chmod 755 ${CATALINA_HOME}/webapps/ROOT.war
 USER tomcat
 
 # Expose Gitbucket home and set as working directory
+RUN chown -R tomcat:tomcat $GITBUCKET_HOME
+RUN chmod -R 775 $GITBUCKET_HOME
+
 VOLUME $GITBUCKET_HOME
 VOLUME $GITBUCKET_HOME/plugins
 WORKDIR $GITBUCKET_HOME
