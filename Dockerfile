@@ -7,6 +7,12 @@ ENV version 3.8
 ENV CATALINA_HOME /opt/tomcat
 ENV GITBUCKET_HOME /opt/gitbucket
 
+RUN apk update
+RUN apk add \
+    git \
+    tar \
+    && rm -rf /var/cache/apk/*
+
 # Create gitbucket home and associated folders
 RUN mkdir -p ${GITBUCKET_HOME}/plugins
 
