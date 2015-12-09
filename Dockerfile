@@ -8,28 +8,24 @@ ENV CATALINA_HOME /opt/tomcat
 ENV GITBUCKET_HOME /opt/gitbucket
 
 USER root
-RUN apk update
-RUN apk add \
+RUN apk add --update \
     git \
+    bash \
     tar \
     && rm -rf /var/cache/apk/*
 
 USER tomcat
 # Create gitbucket home and associated folders
-RUN mkdir -p ${GITBUCKET_HOME}/plugins
+RUN mkdir -p ${GITBUCKET_HOME}/plugins\
+    && chown -R tomcat:tomcat $GITBUCKET_HOME\
+    && chmod -R 775 $GITBUCKET_HOME
 
 # Pull version of gitbucket listed above
-ADD https://github.com/gitbucket/gitbucket/releases/download/${version}/gitbucket.war ${CATALINA_HOME}/webapps/ROOT.war
-
-USER root
-RUN chmod 755 ${CATALINA_HOME}/webapps/ROOT.war
-
-USER tomcat
+RUN wget https://github.com/gitbucket/gitbucket/releases/download/${version}/gitbucket.war \
+    && mv gitbucket.war ${CATALINA_HOME}/webapps/ROOT.war\
+    && chmod 755 ${CATALINA_HOME}/webapps/ROOT.war
 
 # Expose Gitbucket home and set as working directory
-RUN chown -R tomcat:tomcat $GITBUCKET_HOME
-RUN chmod -R 775 $GITBUCKET_HOME
-
 VOLUME $GITBUCKET_HOME
 VOLUME $GITBUCKET_HOME/plugins
 WORKDIR $GITBUCKET_HOME
