@@ -1,4 +1,5 @@
 # hearstat/alpine-gitbucket
+[![](https://badge.imagelayers.io/hearstat/alpine-gitbucket:latest.svg)](https://imagelayers.io/?images=hearstat/alpine-gitbucket:latest 'Get your own badge on imagelayers.io')
 Uses the Alpine image and sets up a container with [gitbucket](https://github.com/gitbucket/gitbucket) installed.
 
 # Build Info
