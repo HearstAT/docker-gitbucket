@@ -1,9 +1,9 @@
 FROM hearstat/alpine-tomcat:7.0.65
 MAINTAINER Hearst Automation Team <atat@hearst.com>
 
-LABEL version 3.9
+LABEL version 3.10
 
-ENV version 3.9
+ENV version 3.10
 ENV CATALINA_HOME /opt/tomcat
 ENV GITBUCKET_HOME /opt/gitbucket
 
