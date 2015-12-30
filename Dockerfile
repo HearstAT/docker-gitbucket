@@ -3,7 +3,7 @@ MAINTAINER Hearst Automation Team <atat@hearst.com>
 
 LABEL version 3.10
 
-ENV version 3.10
+ENV version 3.10_h2-1.4.180
 ENV CATALINA_HOME /opt/tomcat
 ENV GITBUCKET_HOME /opt/gitbucket
 
